@@ -1,0 +1,12 @@
+id;nom;description;;prix;quantite;seuil;dateE;dateS;id_ut;catProduit
+0;Chips;popular brand of potato chips;;265.0;8;5;14/04/2016;28/12/2017;9;chips
+1;Sauce ;cooking and table sauce;;331.0;9;5;29/10/2019;07/11/2017;3;sauce
+2;Bacon;packaged and frozen for storage;;56.0;16;5;30/06/2013;13/07/2014;1;meat
+3;Pizza;popular Italian dish that has become a staple in many parts of the world;;395.0;20;4;31/08/2014;06/01/2015;5;fast food
+4;mayonnaise;creamy condiment;;63.0;8;4;13/05/2016;22/01/2017;8;sauce
+5;Nuggets;pieces of meat that are coated in batter or breadcrumbs and deep-fried until crispy;;294.0;14;4;16/09/2016;28/05/2017;3;chicken
+6;tomato;red fruit that is widely used in cooking and often considered a vegetable;;321.0;23;5;11/05/2014;31/01/2015;8;fruit
+7;banana;tropical fruit that is widely consumed around the world;;25.0;30;4;04/10/2014;05/03/2015;10;fruit
+8;apple;crisp and juicy fruit that is widely grown in many parts of the world;;97.0;25;5;01/05/2016;20/07/2016;7;fruit
+9;orange;citrus fruit that is known for its juicy, sweet flesh and bright, vibrant color;;45.0;50;10;15/03/2013;29/04/2013;1;fruit
+10;orange;citrus fruit that is known for its juicy, sweet flesh and bright, vibrant color;;45.0;5;10;15/03/2013;29/04/2013;1;fruit

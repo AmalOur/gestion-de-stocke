@@ -1,0 +1,383 @@
+mainLayout: 
+    MDTopAppBar:
+        title: "PRODUCTS"
+        md_bg_color: (0,0,0,1)
+        elevation: 0
+        toolbar_height: 0
+        pos_hint: {'y':.9}
+        left_action_items: [["menu", lambda x: app.show_menu(x)]]
+        right_action_items: [["logout", lambda x: app.logout()]]
+
+
+    ScrollView:
+        pos_hint: {'center_y': .5, 'center_x': .5}
+        size_hint: .9, .8
+
+        MDList:
+            id: container
+   
+    MDFloatingActionButton:
+        icon: 'plus-thick'
+        md_bg_color: "#6e0280"
+        on_release: app.show_dialog() 
+        pos_hint: {'x': 1-0.15,'y':0.01}
+    MDFloatingActionButton:
+        icon: 'chart-histogram'
+        md_bg_color: "#6e0280"
+        on_release: app.seuil_analyse() 
+        pos_hint: {'x': 0.1,'y':0.01}
+<DialogContent>:
+    orientation: "vertical"
+    spacing: "10dp"
+    size_hint: 1, None
+    height: "350dp"
+
+    GridLayout:
+        rows: 5
+        cols: 2
+
+        MDTextField:
+            id: nom
+            hint_text: "Name"
+            write_tab: False
+            mode : 'rectangle'
+            #pos_hint: {"center_y": .4}
+            max_text_length: 14
+            on_text_validate:
+        
+        MDTextField:
+            id: description
+            hint_text: "Description"
+            write_tab: False
+            mode : 'rectangle'
+            #pos_hint: {"center_y": .}
+            max_text_length: 100
+            
+        
+        MDTextField:
+            id: prix
+            hint_text: "Price"
+            input_filter: "float"
+            mode : 'rectangle'
+            write_tab: False
+            input_type: 'number'
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+            
+        MDTextField:
+            id: quantite
+            hint_text: "Quantity"
+            input_filter: "int"
+            mode : 'rectangle'
+            write_tab: False
+            input_type: 'number'    
+            max_text_length: 50
+
+        MDTextField:
+            id: seuil
+            hint_text: "Alert limit"
+            input_filter: "int"
+            mode : 'rectangle'
+            write_tab: False
+            #pos_hint: {"center_y": .}
+            max_text_length: 50
+            input_type: 'number'
+            
+        MDTextField:
+            id: dateE
+            hint_text: "Entry date"
+            write_tab: False
+            mode : 'rectangle'
+            write_tab: False
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+            input_type: 'datetime'
+            disabled: True
+            
+        MDTextField:
+            id: Image
+            hint_text: "Image"
+            mode : 'rectangle'
+            write_tab: False
+            #pos_hint: {"center_y": .}
+            max_text_length: 14
+            
+        MDTextField:
+            id:dateS
+            hint_text: "Product not out yet"
+            write_tab: False
+            mode : 'rectangle'
+            input_type: 'datetime'
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+            disabled: True
+        MDTextField:
+            id:catProduit
+            hint_text: "Category"
+            write_tab: False
+            mode : 'rectangle'
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+           
+        
+        
+            
+   
+    BoxLayout:
+        orientation: 'horizontal'
+
+        MDRaisedButton:
+            id : vsau
+            md_bg_color: "#6e0280"
+            text: "Save"
+            on_release: (app.add_produit(nom,description,Image,prix,quantite,seuil,catProduit), app.close_dialog())
+        Widget:
+            size_hint_x: None
+            width: dp(10)
+        MDRaisedButton:
+            text: 'Cancel'
+            md_bg_color: "#6e0280"
+            on_release: app.close_dialog()
+             
+<MAListe>:
+    id: the_list_item
+    markup: True
+
+    LeftCheckbox:
+        id: check
+        on_release: 
+            root.mark(check, the_list_item)
+
+    IconRightWidget:
+        icon: 'trash-can-outline'
+        theme_text_color: "Custom"
+        text_color: 1, 0, 0, 1
+        on_release:
+            #root.delete_item(the_list_item)
+            root.Xalert(the_list_item)
+<Entree>:
+    orientation: "vertical"
+    spacing: "10dp"
+    size_hint: 1, None
+    height: "320dp"
+
+    GridLayout:
+        rows: 5
+        cols: 1
+
+
+        MDTextField:
+            id: n_entree
+            disabled: True
+            write_tab: False
+            hint_text: "Name Product"
+            mode : 'rectangle'
+            #pos_hint: {"center_y": .4}
+            max_text_length: 14
+            on_text_validate:
+        MDTextField:
+            id: q_entree
+            write_tab: False
+            input_filter: "int"
+            hint_text: "Quantity  "
+            mode : 'rectangle'
+            max_text_length: 10
+            #on_text_validate: 
+        MDTextField:
+            id: p_entree
+            hint_text: "Price"
+            input_filter: "float"
+            write_tab: False
+            mode : 'rectangle'
+            max_text_length: 10
+            #on_text_validate: 
+                        
+        MDTextField:
+            id:d_entree
+            hint_text: "Date"
+            write_tab: False
+            mode : 'rectangle'
+            input_type: 'datetime'
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+            disabled: True
+        BoxLayout:
+            orientation: 'horizontal'
+
+            MDRaisedButton:
+                id : vsau
+                text: "Save"
+                on_release: app.add_quantite(q_entree,p_entree)
+                md_bg_color: "#6e0280"
+            Widget:
+                size_hint_x: None
+                width: dp(10)
+            MDRaisedButton:
+                id : vann
+                text: 'Cancel'
+                md_bg_color: "#6e0280"
+                on_release: app.close_dialog()
+
+<DialogContenta>:
+    orientation: "vertical"
+    spacing: "10dp"
+    size_hint: 1, None
+    height: "350dp"
+
+    GridLayout:
+        rows: 5
+        cols: 2
+
+        MDTextField:
+            id: nom
+            hint_text: "Name"
+            write_tab: False
+            mode : 'rectangle'
+            #pos_hint: {"center_y": .4}
+            max_text_length: 14
+            on_text_validate:
+        
+        MDTextField:
+            id: description
+            hint_text: "Description"
+            write_tab: False
+            mode : 'rectangle'
+            #pos_hint: {"center_y": .}
+            max_text_length: 100
+            
+        
+        MDTextField:
+            id: prix
+            hint_text: "Price"
+            input_filter: "float"
+            mode : 'rectangle'
+            write_tab: False
+            input_type: 'number'
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+            
+        MDTextField:
+            id: quantite
+            hint_text: "Quantity"
+            input_filter: "int"
+            mode : 'rectangle'
+            write_tab: False
+            input_type: 'number'    
+            max_text_length: 50
+
+        MDTextField:
+            id: seuil
+            hint_text: "Alert limit"
+            input_filter: "int"
+            mode : 'rectangle'
+            write_tab: False
+            #pos_hint: {"center_y": .}
+            max_text_length: 50
+            input_type: 'number'
+            
+        MDTextField:
+            id: dateE
+            hint_text: "Entry date"
+            mode : 'rectangle'
+            write_tab: False
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+            input_type: 'datetime'
+            disabled: True
+            
+        MDTextField:
+            id: Image
+            hint_text: "Image"
+            mode : 'rectangle'
+            write_tab: False
+            #pos_hint: {"center_y": .}
+            max_text_length: 14
+            
+        MDTextField:
+            id:dateS
+            hint_text: "No release date"
+            mode : 'rectangle'
+            write_tab: False
+            input_type: 'datetime'
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+            disabled: True
+        MDTextField:
+            id:catProduit
+            hint_text: "Category"
+            mode : 'rectangle'
+            write_tab: False
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+   
+    BoxLayout:
+        orientation: 'horizontal'
+
+        MDRaisedButton:
+            id : vsau
+            text: "Save"
+            md_bg_color: "#6e0280"
+            on_release: (app.add_produitm(nom,description,Image,prix,quantite,seuil,catProduit,dateS), app.close_dialog())
+        Widget:
+            size_hint_x: None
+            width: dp(10)
+        MDRaisedButton:
+            id : vann
+            text: 'Cancel'
+            md_bg_color: "#6e0280"
+            on_release: app.close_dialog()
+               
+<Sortie>:
+    orientation: "vertical"
+    spacing: "10dp"
+    size_hint: 1, None
+    height: "320dp"
+
+    GridLayout:
+        rows: 5
+        cols: 1
+
+
+        MDTextField:
+            id: n_sortie
+            disabled: True
+            hint_text: "Name"
+            write_tab: False
+            mode : 'rectangle'
+            max_text_length: 14
+            on_text_validate:
+        MDTextField:
+            id: q_sortie
+            hint_text: "Quantity"
+            input_filter: "int"
+            mode : 'rectangle'
+            write_tab: False
+            max_text_length: 10
+
+
+                        
+        MDTextField:
+            id:d_sortie
+            hint_text: "Date"
+            write_tab: False
+            mode : 'rectangle'
+            input_type: 'datetime'
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+            disabled: True
+        BoxLayout:
+            orientation: 'horizontal'
+
+            MDRaisedButton:
+                id : ssor
+                text: "save"
+                md_bg_color: "#6e0280"
+                on_release: app.rmv_quantite(q_sortie)
+            Widget:
+                size_hint_x: None
+                width: dp(10)
+            MDRaisedButton:
+                id : sorr
+                text: 'cancel'
+                md_bg_color: "#6e0280"
+                on_release: app.close_dialog()   
