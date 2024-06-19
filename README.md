@@ -79,9 +79,9 @@ Il se connecte à la base de données stock à l'aide des informations de connex
 * Faker 18.4.0
  
 ## Documentation
-https://kivymd.readthedocs.io/en/1.1.1/
-https://kivy.org/doc/stable/
-https://www.mysql.com/
+- https://kivymd.readthedocs.io/en/1.1.1/
+- https://kivy.org/doc/stable/
+- https://www.mysql.com/
 
 
 ## Auteur
