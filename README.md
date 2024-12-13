@@ -1,7 +1,7 @@
-# Gestion de stock en kivy/kivyMD
+# Gestion de stocke en kivy/kivyMD
 
 ## Description
-Cette application de gestion de stock en KivyMD permet de créer un compte en tant qu’utilisateur, se connecter en tant qu’admin, gérer les stocks de produits en ajoutant, supprimant ou modifiant les produits. Il est également possible d'entrer la quantité de chaque produit ajouté et de mettre à jour le stock en conséquence.
+Cette application de gestion de stocke en KivyMD permet de créer un compte en tant qu’utilisateur, se connecter en tant qu’admin, gérer les stockes de produits en ajoutant, supprimant ou modifiant les produits. Il est également possible d'entrer la quantité de chaque produit ajouté et de mettre à jour le stocke en conséquence.
 
 ## Installation
 1. Clonez ou téléchargez le repository.
@@ -9,7 +9,7 @@ Cette application de gestion de stock en KivyMD permet de créer un compte en ta
 3. Lancez l'application avec la commande 'python index.py'.
 
 ## Inscription
-Les utilisateurs peuvent s'inscrire en entrant leur nom, prénom, numéro de téléphone, adresse, genre et mot de passe. Si un champ obligatoire est laissé vide, une boîte de dialogue d'erreur est affichée. Si tous les champs sont remplis, les informations sont envoyées à une base de données MySQL à l'aide de la bibliothèque mysql-connector-python. Le mot de passe est haché avec l'algorithme SHA-256 avant d'être stocké dans la base de données.
+Les utilisateurs peuvent s'inscrire en entrant leur nom, prénom, numéro de téléphone, adresse, genre et mot de passe. Si un champ obligatoire est laissé vide, une boîte de dialogue d'erreur est affichée. Si tous les champs sont remplis, les informations sont envoyées à une base de données MySQL à l'aide de la bibliothèque mysql-connector-python. Le mot de passe est haché avec l'algorithme SHA-256 avant d'être stockeé dans la base de données.
 
 Les utilisateurs peuvent se connecter en appuyant sur le bouton "Log In". Cela ouvre une nouvelle fenêtre en exécutant un script python de connexion (log_in).
 
@@ -40,10 +40,10 @@ Pour supprimer un produit, cliquer sur l'icône supprimer à droite du produit q
 Pour modifier un produit existant, cliquer sur radio bouton à gauche dans la liste des produits. Une boîte de dialogue de choix apparaîtra cliquée alors sur le bouton 'Modifier’. Le formulaire de modification s'affichera, remplissez les champs que vous voulez modifier. Cliquer sur "save" pour enregistrer le produit avec les modifications apporté dans la base de données. Si vous ne voulez pas continuer cette opération cliquer sur "cancel".
 
 ### Entrée de quantité
-Pour entrer la quantité de produits ajoutés, cliquer sur radio bouton à gauche dans la liste des produits. Une boîte de dialogue de choix apparaîtra cliquée alors sur le bouton 'ENTRY’. Entrez la quantité de produits ajoutés dans le champ "Quantity" et son nouveau prix dans le champ "Price" cliquer sur "save" pour mettre à jour le stock. Si vous ne voulez pas continuer cette opération cliquer sur "cancel".
+Pour entrer la quantité de produits ajoutés, cliquer sur radio bouton à gauche dans la liste des produits. Une boîte de dialogue de choix apparaîtra cliquée alors sur le bouton 'ENTRY’. Entrez la quantité de produits ajoutés dans le champ "Quantity" et son nouveau prix dans le champ "Price" cliquer sur "save" pour mettre à jour le stocke. Si vous ne voulez pas continuer cette opération cliquer sur "cancel".
 
 ### Sortie de quantité
-Pour sortir la quantité de produits ajoutés, cliquer sur radio bouton à gauche dans la liste des produits. Une boîte de dialogue de choix apparaîtra cliquée alors sur le bouton 'WITHDRAW’. Entrez la quantité de produits ajoutés dans le champ "Quantity" cliquer sur "save" pour mettre à jour le stock. Si vous ne voulez pas continuer cette opération cliquer sur "cancel".
+Pour sortir la quantité de produits ajoutés, cliquer sur radio bouton à gauche dans la liste des produits. Une boîte de dialogue de choix apparaîtra cliquée alors sur le bouton 'WITHDRAW’. Entrez la quantité de produits ajoutés dans le champ "Quantity" cliquer sur "save" pour mettre à jour le stocke. Si vous ne voulez pas continuer cette opération cliquer sur "cancel".
 
 ## Menu
 L'application utilise le ScreenManager de Kivy pour gérer plusieurs écrans. La classe WindowManager étend ScreenManager et permet de passer d'un écran à l'autre. La classe MainScreen est une sous-classe de Screen et constitue l'écran principal de l'application. La disposition de l'application est définie à l'aide d'une BoxLayout.
@@ -66,7 +66,7 @@ L'application utilise la méthode Builder.load_string de Kivy pour charger le fi
 ## Faker
 Faker génère des données aléatoires pour remplir la table "produit" et la table "utilisateur" dans la base de données MySQL. Il utilise les bibliothèques Faker et faker_commerce.
 
-Il se connecte à la base de données stock à l'aide des informations de connexion stockées dans un autre fichier nommé "db_connex.py", récupère un curseur et exécute une boucle pour insérer 10 enregistrements en utilisant une instruction SQL INSERT.
+Il se connecte à la base de données stocke à l'aide des informations de connexion stockées dans un autre fichier nommé "db_connex.py", récupère un curseur et exécute une boucle pour insérer 10 enregistrements en utilisant une instruction SQL INSERT.
 
 ## Technologies utilisées
 * Python 3.11.2
